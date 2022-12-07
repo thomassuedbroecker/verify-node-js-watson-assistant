@@ -18,6 +18,7 @@ var e_apikey=process.env.WATSON_ASSISTANT_API_KEY;
 var e_serverUrl=process.env.WATSON_ASSISTANT_SERVICE_URL;
 var e_assistantID=process.env.WATSON_ASSISTANT_ID;
 var e_environmentID=process.env.WATSON_ASSISTANT_ENVIRONMENT_ID;
+
 console.log(process.env.WATSON_ASSISTANT_VERSION);
 console.log(process.env.WATSON_ASSISTANT_API_KEY);
 console.log(process.env.WATSON_ASSISTANT_SERVICE_URL);
@@ -33,39 +34,25 @@ const assistant = new AssistantV2({
   });
 
 
-app.get('/getsession', (req, res) => {
-    var returnvalue;
-     
-    returnvalue = returnSessionID();
-    console.log("Return value : ", returnvalue);
-    res.statusCode = 200;
-    res.write(JSON.stringify(returnvalue));
-    res.end();    
-});
-
-function returnSessionID (){
-    let sessionID = "";
-    
+app.get('/getsession', (req, res) => {   
     assistant.createSession({
-            //assistantId: e_assistantID
-            assistantId: e_environmentID
-        })
-        .then(res => {
-            console.log(JSON.stringify(res.result, null, 2));
-            sessionID = JSON.stringify(res.result, null, 2);
-        })
-        .catch(err => {
-            console.log(err);   
-        });
-
-    return sessionID;
-}
-
-
-async function returnSessionID() { 
-    const body = await assistant.createSession();
-    return body;
-}
+        //assistantId: e_assistantID
+        assistantId: e_environmentID
+    })
+    .then(createSessionresult => {
+        console.log(JSON.stringify(createSessionresult.result, null, 2));
+        sessionID = JSON.stringify(createSessionresult.result, null, 2);
+        res.statusCode = 200;
+        res.write(sessionID);
+        res.end();
+    })
+    .catch(createSessionError => {
+        console.log(createSessionError);
+        res.statusCode = 400;
+        res.write(createSessionError);
+        res.end();
+    });  
+});
 
 const server = app.listen(port, function () {
     console.log('server is running on port:', port ); 
