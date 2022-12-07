@@ -24,6 +24,7 @@ WATSON_ASSISTANT_VERSION='2021-11-27'
 WATSON_ASSISTANT_API_KEY='XXXX'
 WATSON_ASSISTANT_SERVICE_URL='https://api.us-south.assistant.watson.cloud.ibm.com'
 WASTON_ASSISTANT_ID='XXX'
+WATSON_ASSISTANT_ENVIRONMENT_ID='XXX'
 ```
 
 ### Run local on port 3000
@@ -36,7 +37,15 @@ npm start
 ### Open browser and invoke URL
 
 ```sh
-open http://localhost:3000/getSession
+open http://localhost:3000/getsession
+```
+
+* Example output:
+
+```json
+{
+"session_id": "37d13c72-1643-4add-bee5-574c6fd062dc"
+}
 ```
 
 
