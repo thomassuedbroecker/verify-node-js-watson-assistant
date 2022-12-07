@@ -25,12 +25,12 @@ console.log(process.env.WATSON_ASSISTANT_ID);
 console.log(process.env.WATSON_ASSISTANT_ENVIRONMENT_ID);
 
 const assistant = new AssistantV2({
-  version: e_version,
-  authenticator: new IamAuthenticator({
-    apikey: e_apikey,
-  }),
-  serviceUrl: e_serverUrl,
-});
+    version: e_version,
+    authenticator: new IamAuthenticator({
+      apikey: e_apikey,
+    }),
+    serviceUrl: e_serverUrl,
+  });
 
 
 app.get('/getsession', (req, res) => {
@@ -44,7 +44,7 @@ app.get('/getsession', (req, res) => {
 });
 
 function returnSessionID (){
-    let sessionID;
+    let sessionID = "";
     
     assistant.createSession({
             //assistantId: e_assistantID
@@ -57,6 +57,14 @@ function returnSessionID (){
         .catch(err => {
             console.log(err);   
         });
+
+    return sessionID;
+}
+
+
+async function returnSessionID() { 
+    const body = await assistant.createSession();
+    return body;
 }
 
 const server = app.listen(port, function () {
