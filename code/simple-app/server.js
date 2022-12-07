@@ -48,7 +48,7 @@ app.get('/getsession', (req, res) => {
     })
     .catch(createSessionError => {
         console.log(createSessionError);
-        res.statusCode = 400;
+        res.statusCode = 500;
         res.write(createSessionError);
         res.end();
     });  
