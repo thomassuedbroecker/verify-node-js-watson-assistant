@@ -1,6 +1,6 @@
 # verify-node-js-watson-assistant
 
-Just try to get a Watson Assistant session
+Get a Watson Assistant session and send a message to Watson Assistant.
 
 ### Git clone
 
@@ -37,7 +37,7 @@ npm start
 ### Open browser and invoke URL
 
 ```sh
-open http://localhost:3000/getsession
+open http://localhost:3010/getsession
 ```
 
 * Example output:
