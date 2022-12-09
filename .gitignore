@@ -1,3 +1,7 @@
+# custom
+code/simple-server/package-lock.json
+code/local-watson-client
+
 # Logs
 logs
 *.log
@@ -102,4 +106,5 @@ dist
 
 # TernJS port file
 .tern-port
-code/simple-app/package-lock.json
+
+.DS_Store

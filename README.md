@@ -1,12 +1,19 @@
 # verify-node-js-watson-assistant
 
+This is simple example to use the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2).
+
 Get a Watson Assistant session and send a message to Watson Assistant.
+
+This is a simple Node.js server with to endpoints: 
+
+* getsession
+* sendmessage
 
 ### Git clone
 
 ```sh
 git clone https://github.com/thomassuedbroecker/verify-node-js-watson-assistant.git
-cd verify-node-js-watson-assistant/code
+cd verify-node-js-watson-assistant/code/simple-server
 ```
 
 ### Configure environment
