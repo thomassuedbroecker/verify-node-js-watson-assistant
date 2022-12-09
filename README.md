@@ -1,11 +1,11 @@
 # verify-node-js-watson-assistant
 
-This is a simple example to use the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2) to get a Watson Assistant sessionID and send a message to Watson Assistant with that session ID.
+This is a simple example to use the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2) with the [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk) to get a [Watson Assistant] sessionID and send a message to [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant#about) using this session ID.
 
-This is a simple Node.js server with to endpoints: 
+These are the REST endpoints of the simple Node.js server: 
 
-* getsession
-* sendmessage
+* `GET` getsession
+* `POST` sendmessage
 
 The project contains examples for using [Postman](https://www.postman.com/downloads/).
 
@@ -84,12 +84,23 @@ The images shows the imported collection.
 
 ### Step 7: Send a message 
 
-* Get the session ID form `GET request` using the `getsession` endpoint
+### Step 7.1: Send a message  Get the session ID form `GET request` using the `getsession` endpoint
 
 ![](images/watson-assistant-05.png)
 
-* Insert the `session ID` into the body of the `POST` request using the `sendmessage endpoint`
+### Step 7.2: Insert the `session ID` into the body of the `POST` request using the `sendmessage endpoint`
 
-![](images/watson-assistant-05.png)
+This is the json format which is used in the post request sendmessage
+
+```json
+{ "sendmessage" : {
+  "sessionID" : "XXXX",
+  "message_type": "text",
+  "text": "Hello"
+  }
+}
+```
+
+![](images/watson-assistant-06.png)
 
 
