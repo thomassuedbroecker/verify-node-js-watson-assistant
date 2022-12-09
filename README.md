@@ -14,8 +14,10 @@ Here are the steps to follow: How to use that example.
 ### Step 1: Git clone
 
 ```sh
-git clone https://github.com/thomassuedbroecker/verify-node-js-watson-assistant.git
-cd verify-node-js-watson-assistant/code/simple-server
+git clone https://github.com/thomassuedbroecker/
+watson-assistant-simple-node-js-server-example.git
+cd 
+watson-assistant-simple-node-js-server-example/code/simple-server
 ```
 
 ### Step 2: Configure the environment variables
