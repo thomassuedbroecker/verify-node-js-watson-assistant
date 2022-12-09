@@ -1,6 +1,7 @@
 # custom
 code/simple-server/package-lock.json
 code/local-watson-client
+.DS_Store
 
 # Logs
 logs
