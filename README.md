@@ -1,6 +1,6 @@
-# verify-node-js-watson-assistant
+# Simple Node.js server example for using the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2) 
 
-This is a simple example to use the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2) with the [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk) to get a [Watson Assistant] sessionID and send a message to [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant#about) using this session ID.
+This is a simple example to use the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2) with the [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk) to get a [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant#about) sessionID and send a message to [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant#about) using this session ID.
 
 These are the REST endpoints of the simple Node.js server: 
 
@@ -20,13 +20,13 @@ cd verify-node-js-watson-assistant/code/simple-server
 
 ### Step 2: Configure the environment variables
 
-[Here we need an `environment ID`. We can find this `ID` in the `Watson Assistant user interface`, by navigating to the `Environments page` and selecting the environment you want to use (such as Draft or Live). Then you open the `environment settings` and copy the value from the appropriate field.](https://cloud.ibm.com/apidocs/assistant/assistant-v2#createsession)
+[Here we need an `environment ID`. We can find this `ID` in the `Watson Assistant user interface`, by navigating to the `Environments page` and selecting the environment you want to use (such as Draft or Live). Then you open the `environment settings` and copy the value from the appropriate field.](https://cloud.ibm.com/apidocs/assistant/assistant-v2#createsession) (Contains the Link to the IBM Cloud documentation)
 
 The image blow shows the `environment ID` in the [IBM Cloud UI](https://cloud.ibm.com/resources).
 
 ![](images/watson-assistant-01.png)
 
-We also need an the `API key` and the base `URL` from the Credentials.
+We also need an `API key` and a base `URL` from the Credentials.
 
 The image blow shows the `API key` and the `URL` in the [IBM Cloud UI](https://cloud.ibm.com/resources).
 
@@ -47,7 +47,7 @@ WATSON_ASSISTANT_SERVICE_URL='https://api.us-south.assistant.watson.cloud.ibm.co
 WATSON_ASSISTANT_ENVIRONMENT_ID='XXX'
 ```
 
-### Step 3: Run local on port 3000
+### Step 3: Run local on port 3010
 
 ```sh
 npm install
@@ -102,5 +102,4 @@ This is the json format which is used in the post request sendmessage
 ```
 
 ![](images/watson-assistant-06.png)
-
 
