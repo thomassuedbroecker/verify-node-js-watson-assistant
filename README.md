@@ -9,7 +9,7 @@ These are the REST endpoints of the simple Node.js server:
 
 The project contains examples for using [Postman](https://www.postman.com/downloads/).
 
-Here are the steps to follow: How to use that example.
+Here are the steps to you can follow to run that example on your local machine.
 
 ### Step 1: Git clone
 
