@@ -4,7 +4,7 @@ This is a simple example to use the [Watson Assistant API v2](https://cloud.ibm.
 
 These are the REST endpoints of the simple Node.js server: 
 
-* `GET` getsession
+* `GET` getsession (which creates a new `sessionID`)
 * `POST` sendmessage
 
 The project contains examples for using [Postman](https://www.postman.com/downloads/).
@@ -57,6 +57,8 @@ npm start
 ```
 
 ### Step 4: Open browser and invoke the get session endpoint
+
+It returns the newly created `sessionID`.
 
 ```sh
 open http://localhost:3010/getsession
