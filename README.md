@@ -9,7 +9,7 @@ These are the REST endpoints of the simple Node.js server:
 
 The project contains examples for using [Postman](https://www.postman.com/downloads/).
 
-Here are the steps to you can follow to run that example on your local machine.
+Here are the steps you can follow to run that example on your local machine.
 
 ### Step 1: Git clone
 
@@ -28,19 +28,17 @@ The image blow shows the `environment ID` in the [IBM Cloud UI](https://cloud.ib
 
 ![](images/watson-assistant-01.png)
 
-We also need an `API key` and a base `URL` from the Credentials.
-
-The image blow shows the `API key` and the `URL` in the [IBM Cloud UI](https://cloud.ibm.com/resources).
+We also need an `API key` and a base `URL` from the Credentials. The image below shows the `API key` and the `URL` in the [IBM Cloud UI](https://cloud.ibm.com/resources).
 
 ![](images/watson-assistant-01.png)
 
-* Create `.env` file
+* Create an `.env` file
 
 ```sh
 cat .env-template > .env
 ```
 
-* Configure `.env` file to your needs
+* Configure the `.env` file to your needs
 
 ```sh
 WATSON_ASSISTANT_VERSION='2021-11-27'
@@ -94,7 +92,7 @@ The images shows the imported collection.
 
 ### Step 7.2: Insert the `session ID` into the body of the `POST` request using the `sendmessage endpoint`
 
-This is the json format which is used in the post request sendmessage
+This is the JSON format which is used in the post request sendmessage
 
 ```json
 { "sendmessage" : {
