@@ -2,6 +2,8 @@
 
 This is a simple example to use the [Watson Assistant API v2](https://cloud.ibm.com/apidocs/assistant/assistant-v2) with the [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk) to get a [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant#about) sessionID and send a message to [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant#about) using this session ID.
 
+Related blog post: [Simple Node.js server example using the Watson Assistant API v2](https://suedbroecker.net/2022/12/09/simple-node-js-server-example-for-using-the-watson-assistant-api-v2/)
+
 These are the REST endpoints of the simple Node.js server: 
 
 * `GET` getsession (which creates a new `sessionID`)
