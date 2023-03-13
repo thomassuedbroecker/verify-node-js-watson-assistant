@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"sendmessage\" : {\"sessionID\" : \"87bb1085-c96e-4296-b78f-172273485326\",\n\"message_type\": \"text\",\n\"text\": \"What is a CVV\"\n}\n}",
+					"raw": "{ \"sendmessage\" : {\"sessionID\" : \"9f36caac-e2ea-4547-b804-89fe6da50d83\",\n\"message_type\": \"text\",\n\"text\": \"Integration\"\n}\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,6 +48,34 @@
 					"port": "3010",
 					"path": [
 						"sendmessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send search message to Watson Assistant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"sendmessage\" : {\"sessionID\" : \"6f93ccf9-1156-40d0-8c48-e601ee19ef53\",\n\"message_type\": \"text\",\n\"text\": \"integration\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/sendstatefullmessage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"sendstatefullmessage"
 					]
 				}
 			},

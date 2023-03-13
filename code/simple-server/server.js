@@ -124,6 +124,83 @@ app.post('/sendmessage', (req, res) => {
       }   
 });
 
+// { 'sendmessage' : {
+//       'sessionID' : 'XXXX',
+//       'message_type': 'search',
+//       'text': 'Hello'
+//    }
+//    "options": {
+//      "return_context": true,
+//      "export": true
+//    }
+//  }
+app.post('/sendsearchmessage', (req, res) => {  
+
+  if (req != undefined) {
+      console.log("** Request  \n ", req.toString());
+      console.log("** Headers  \n ", JSON.stringify(req.headers));
+      const contentType = req.headers["content-type"];
+      
+      // 1. right contentType
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        console.log("** 1. right contentType");       
+        // 2. Body exists
+        if (req.body != undefined) {
+          console.log("** 2. Body exists: \n", JSON.stringify(req.body));          
+          // 3. right format
+          if (req.body.sendmessage != undefined){
+              console.log("** 3. right format: \n", JSON.stringify(req.body.sendmessage));
+              
+              assistant.message({
+                  assistantId: e_environmentID,
+                  sessionId: req.body.sendmessage.sessionID,
+                  input: {
+                     "message_type": req.body.sendmessage.message_type,
+                     "search": req.body.sendmessage.text,
+                     "options": {
+                      "return_context": true,
+                      "export": true
+                    }
+                    }
+                  })
+                  .then(assistant_message_res => {
+                    console.log(JSON.stringify(assistant_message_res.result, null, 2));
+                    res.statusCode = 201;
+                    console.log("** 201", assistant_message_res.result);
+                    res.json(assistant_message_res.result);
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    res.statusCode = 500;
+                    console.log("** 500", err);
+                    res.json(err);
+                  });  
+          } else { // 3. right format
+            res.statusCode = 406;
+            returnvalue = { "info":"Not acceptable wrong format (missing codes)" };
+            console.log("** 406", returnvalue);
+            res.json(returnvalue);
+          }         
+        } else { // 2. Body exists
+          res.statusCode = 406;
+          returnvalue = { "info":"Not acceptable wrong format (no body)" };
+          console.log("** 406", returnvalue);
+          res.json(returnvalue);
+        }
+      } else { // 1. right contentType
+        res.statusCode = 406;
+        returnvalue = { "info":"Not acceptable wrong format" };
+        console.log("** 406", returnvalue);
+        res.json(returnvalue);
+      }
+    } else {
+      res.statusCode = 406;
+      returnvalue = { "info":"Not acceptable wrong format" };
+      console.log("** 406", returnvalue);
+      res.json(returnvalue);
+    }   
+});
+
 const server = app.listen(port, function () {
     console.log('server is running on port:', port ); 
 });
