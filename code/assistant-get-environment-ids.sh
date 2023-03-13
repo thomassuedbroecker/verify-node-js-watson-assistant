@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # **************** Global variables
-source ./scripts/.env
+source ./.env
 
 export OAUTHTOKEN=""
 export IBMCLOUD_APIKEY=$APIKEY
@@ -31,9 +31,9 @@ function getAPIKey() {
     SERVICE_KEY_NAME=$(ibmcloud resource service-keys --instance-name $WATSON_ASSISTANT_SERVICE_INSTANCE_NAME | grep "Service-credentials-custom" | awk '{print $1;}')
     echo "Service Key Name: $SERVICE_KEY_NAME"
     ibmcloud resource service-key $SERVICE_KEY_NAME --output json
-    ibmcloud resource service-key $SERVICE_KEY_NAME --output json > $ROOTFOLDER/scripts/$TEMPFILE
-    export WA_APIKEY=$(cat $ROOTFOLDER/scripts/$TEMPFILE | jq '.[0].credentials.apikey' | sed 's/"//g')
-    export WA_URL=$(cat $ROOTFOLDER/scripts/$TEMPFILE | jq '.[0].credentials.url' | sed 's/"//g')
+    ibmcloud resource service-key $SERVICE_KEY_NAME --output json > $ROOTFOLDER/$TEMPFILE
+    export WA_APIKEY=$(cat $ROOTFOLDER/$TEMPFILE | jq '.[0].credentials.apikey' | sed 's/"//g')
+    export WA_URL=$(cat $ROOTFOLDER/$TEMPFILE | jq '.[0].credentials.url' | sed 's/"//g')
 }
 
 #********************************
