@@ -44,7 +44,7 @@ function getLogs() {
     TEMPFILE="temp-environment.log"
 
     # curl -X GET -u "apikey:$WA_APIKEY" "$WA_URL/v2/assistants/$WA_ENVIRONMENT_ID/logs?version=$WA_VERSION"
-    curl -X GET -u "apikey:$WA_APIKEY" "$WA_URL/v2/assistants/$WA_ENVIRONMENT_ID/logs?version=$WA_VERSION" >  $ROOTFOLDER/scripts/$TEMPFILE
+    curl -X GET -u "apikey:$WA_APIKEY" "$WA_URL/v2/assistants/$WA_ENVIRONMENT_ID/logs?version=$WA_VERSION" >  $ROOTFOLDER/$TEMPFILE
     echo ""
     echo "curl -X GET -u apikey:$WA_APIKEY $WA_URL/v2/assistants/$WA_ENVIRONMENT_ID/logs?version=$WA_VERSION " 
 
@@ -55,11 +55,11 @@ function getEnvironments() {
 
     echo ""
     curl -X GET -u "apikey:$WA_APIKEY" "$WA_URL/v2/assistants/$WATSON_ASSISTANT_ID/environments?version=$WA_VERSION" 
-    curl -X GET -u "apikey:$WA_APIKEY" "$WA_URL/v2/assistants/$WATSON_ASSISTANT_ID/environments?version=$WA_VERSION" > $ROOTFOLDER/scripts/$TEMPFILE 
+    curl -X GET -u "apikey:$WA_APIKEY" "$WA_URL/v2/assistants/$WATSON_ASSISTANT_ID/environments?version=$WA_VERSION" > $ROOTFOLDER/$TEMPFILE 
     echo ""
     echo "curl -X GET -u apikey:$WA_APIKEY $WA_URL/v2/assistants/$WATSON_ASSISTANT_ID/environments?version=$WA_VERSION"
 
-    export WA_ENVIRONMENT_ID=$(cat $ROOTFOLDER/scripts/$TEMPFILE | jq '.environments[0].environment_id' | sed 's/"//g')
+    export WA_ENVIRONMENT_ID=$(cat $ROOTFOLDER/$TEMPFILE | jq '.environments[0].environment_id' | sed 's/"//g')
     echo "Environment ID: $WA_ENVIRONMENT_ID"
 }
 
